@@ -12,7 +12,7 @@ setup(
     author_email="suprajac@email.unc.edu",
     description=DESCRIPTION,
     long_description=LONG_DESCRIPTION,
-    url='https://github.com/UNC-Knight-Lab/peptoid-sequence-tools',
+    url='https://github.com/UNC-Knight-Lab/ColorClassify',
     packages=find_packages(),
     install_requires=[
         'numpy',
@@ -27,7 +27,7 @@ setup(
         'Pillow'
     ],
     entry_points={
-        'console_scripts': ['image_quant=bead_quant.image_quant.command_line:main', 'bead_classification=bead_quant.bead_class.command_line:main'],
+        'console_scripts': ['image_quant=color-classify.image_quant.command_line:main', 'bead_classification=color-classify.bead_class.command_line:main'],
     },
     classifiers=[
         'Intended Audience :: Science/Research',
