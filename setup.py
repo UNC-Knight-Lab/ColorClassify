@@ -6,7 +6,7 @@ LONG_DESCRIPTION = 'My first Python package with a slightly longer description'
 
 # Setting up
 setup(
-    name="bead_quant",
+    name="color-classify",
     version=VERSION,
     author="Supraja Chittari",
     author_email="suprajac@email.unc.edu",
