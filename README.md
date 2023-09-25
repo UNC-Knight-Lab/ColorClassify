@@ -10,13 +10,13 @@ A version of Python >= 3.7 is required to use this package. We recommend using [
    1. Download the zip from GitHub (Code -> Download ZIP). Unzip the package somewhere (note the extraction path). The extracted package can be deleted after installation.
    2. Clone this repository (requires git to be installed) with:
       
-   `git clone https://github.com/UNC-Knight-Lab/ML-bead-analysis.git`
+   `git clone https://github.com/UNC-Knight-Lab/color-classify.git`
 
 3. Install the package using pip. This command will install this package to your Python environment.
     The package path should be the current working directory `.` if cloned using git. Otherwise, replace it with the path to the `ML-bead-analysis` folder.
       
    `pip install .`
-   or `pip install /path/to/package/ML-bead-analysis`
+   or `pip install /path/to/package/color-classify`
 
 That's it!
 
@@ -51,10 +51,10 @@ Use the help `-h` tag to see more options.
 ### To run in Python:
 For the image quantification, in a Python environment, import the Python function:
 
-    from bead_quant.image_quant import image_quantification
+    from color-classify.image_quant import image_quantification
     image_quantification(input_folder)
 
 For the classification, in a Python environment, import the Python function:
 
-    from bead_quant.bead_class import classification
+    from color-classify.bead_class import classification
     classification(input_folder)
