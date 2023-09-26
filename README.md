@@ -10,13 +10,13 @@ A version of Python >= 3.7 is required to use this package. We recommend using [
    1. Download the zip from GitHub (Code -> Download ZIP). Unzip the package somewhere (note the extraction path). The extracted package can be deleted after installation.
    2. Clone this repository (requires git to be installed) with:
       
-   `git clone https://github.com/UNC-Knight-Lab/color-classify.git`
+   `git clone https://github.com/UNC-Knight-Lab/ColorClassify.git`
 
 3. Install the package using pip. This command will install this package to your Python environment.
     The package path should be the current working directory `.` if cloned using git. Otherwise, replace it with the path to the `ML-bead-analysis` folder.
       
    `pip install .`
-   or `pip install /path/to/package/color-classify`
+   or `pip install /path/to/package/ColorClassify`
 
 That's it!
 
@@ -35,6 +35,8 @@ This tool is designed to classify RGB values of a list of beads into color assig
 2. A gradient boosting classifier will be fit to the training data. An optional gridsearch optimization can be run to determine the best model hyperparameters or these can be otherwise provided.
 3. Predictions with RGB values with unknown classification will be performed over a specified number of iterations. Averaged predictions will be deposited into the location specified by the input folder.
 
+For more information on this tool, we point you to the following publication:
+
 ### To run from terminal:
 For the image quantification, use:
 
@@ -51,10 +53,10 @@ Use the help `-h` tag to see more options.
 ### To run in Python:
 For the image quantification, in a Python environment, import the Python function:
 
-    from color-classify.image_quant import image_quantification
+    from color_classify.image_quant import image_quantification
     image_quantification(input_folder)
 
 For the classification, in a Python environment, import the Python function:
 
-    from color-classify.bead_class import classification
+    from color_classify.bead_class import classification
     classification(input_folder)
