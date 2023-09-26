@@ -6,7 +6,7 @@ LONG_DESCRIPTION = 'My first Python package with a slightly longer description'
 
 # Setting up
 setup(
-    name="color-classify",
+    name="color_classify",
     version=VERSION,
     author="Supraja Chittari",
     author_email="suprajac@email.unc.edu",
@@ -27,7 +27,7 @@ setup(
         'Pillow'
     ],
     entry_points={
-        'console_scripts': ['image_quant=color-classify.image_quant.command_line:main', 'bead_classification=color-classify.bead_class.command_line:main'],
+        'console_scripts': ['image_quant=color_classify.image_quant.command_line:main', 'bead_classification=color_classify.bead_class.command_line:main'],
     },
     classifiers=[
         'Intended Audience :: Science/Research',
@@ -35,5 +35,5 @@ setup(
         'Operating System :: OS Independent',
         'Programming Language :: Python :: 3.7',
     ],
-    license='GPL-3.0'
+    license='MIT'
 )
