@@ -26,7 +26,7 @@ This tool can be run as a Python function or from the command line terminal. The
 ### Image quantification
 This tool is designed to determine the average RGB color of individual beads in an OBOC library. 
 1. To begin, designate an input folder containing .tif images of the library. An sample image is provided in the sample data.
-2. The script will display each image in successfion. For each, click the approximate center of each bead to be quantified. When finished, click X to exit the image window, and an annotated version with the region of interest over each bead will be displayed.
+2. The script will display each image in succession. For each, click the approximate center of each bead to be quantified. When finished, click X to exit the image window, and an annotated version with the region of interest over each bead will be displayed.
 3. The next image will be output automatically until all the images in the library folder have been processed. Annotated images as well as the RGB values of the regions for each images are exported to new folders created within the input folder.
 
 ### RGB classification
