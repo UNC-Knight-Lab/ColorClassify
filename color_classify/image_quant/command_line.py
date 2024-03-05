@@ -20,8 +20,12 @@ def main():
 
     for directory in new_dirs:
         path = os.path.join(input_folder, directory)
-        os.mkdir(path)
-        print("Directory '% s' created" % directory)
+
+        if not os.path.exists(path):
+            os.makedirs(path)
+            print("Directory '% s' created" % directory)
+        else:
+            print("Folder creation failed")
 
     # Call image_quantification function
     image_quantification(input_folder)
