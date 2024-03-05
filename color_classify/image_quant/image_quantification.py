@@ -15,18 +15,18 @@ def image_quantification(path):
     global indx
     print("Beginning analysis...")
 
-    files = Path(path).glob('**/*.tif')
-
     new_dirs = ['annotated_images', 'image_RGB']
 
     for directory in new_dirs:
-        path = os.path.join(input_folder, directory)
+        new_path = os.path.join(path, directory)
 
-        if not os.path.exists(path):
-            os.makedirs(path)
+        if not os.path.exists(new_path):
+            os.makedirs(new_path)
             print("Directory '% s' created" % directory)
         else:
             print("Directory already exists.")
+
+    files = Path(path).glob('**/*.tif')
     
     for imgpath in files:
         image_name = os.path.basename(imgpath).split('.')[0]   
