@@ -115,7 +115,7 @@ def find_circles(rgb, grayscale, annotated, coords_x, coords_y, image_name):
                 break
 
     return hsv_of_circles, annotated  
-# unchanged from here
+
 
 def show_annotated_image(rgb_annotated, path, image_name):
     name = image_name + ".png"
@@ -125,13 +125,13 @@ def show_annotated_image(rgb_annotated, path, image_name):
     annotated.save(new_path) 
 
 
-def write_excel(coords_x, coords_y, rgb_of_circles, path, image_name):
-    all_data = pd.DataFrame(rgb_of_circles)
-    all_data.columns = ['R','G','B']
+def write_excel(coords_x, coords_y, hsv_of_circles, path, image_name):
+    all_data = pd.DataFrame(hsv_of_circles)
+    all_data.columns = ['Hue','Saturation','Value']
     all_data['x positions'] = coords_x
     all_data['y positions'] = coords_y
 
     name = image_name + ".xlsx"
-    new_path = os.path.join(path, 'image_RGB',name)
+    new_path = os.path.join(path, 'image_HSV',name)
     all_data.to_excel(new_path)
 
