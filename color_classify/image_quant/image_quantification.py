@@ -16,7 +16,7 @@ def image_quantification(path):
     global indx
     print("Beginning analysis...")
 
-    new_dirs = ['annotated_images', 'image_RGB']
+    new_dirs = ['annotated_images', 'image_HSV']
 
     for directory in new_dirs:
         new_path = os.path.join(path, directory)
@@ -168,4 +168,3 @@ def write_excel(coords_x, coords_y, hsv_of_circles, path, image_name):
     name = image_name + ".xlsx"
     new_path = os.path.join(path, 'image_HSV',name)
     all_data.to_excel(new_path)
-
