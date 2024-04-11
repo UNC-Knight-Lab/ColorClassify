@@ -86,6 +86,31 @@ def callback(event):
     draw.text((event.x, event.y), text=str(indx), fill=(0,0,0))
     indx += 1
         
+# def find_circles(rgb, grayscale, annotated, coords_x, coords_y, image_name):
+#     radii = np.zeros(len(coords_x))
+#     rgb_of_circles = np.zeros((len(coords_x),3))
+    
+#     for i in range(len(coords_x)):
+#         traffic_light = False
+        
+#         while(traffic_light == False):
+#             try:
+#                 if abs(int(grayscale[coords_y[i],coords_x[i]]) - int(grayscale[int(coords_y[i] + radii[i]),coords_x[i]])) >= 30:
+#                     circy, circx = circle_perimeter(coords_y[i], coords_x[i], int(radii[i])-3,shape=grayscale.shape)
+#                     rr,cc = disk((coords_y[i], coords_x[i]), radii[i],shape=grayscale.shape)
+#                     region = rgb[rr,cc,:] # rr is y indices, cc is x indices
+#                     rgb_of_circles[i,:] = np.mean(region, axis=0)
+#                     annotated[circy, circx] = (0,0,0)
+                    
+#                     traffic_light = True
+#                 else:
+#                     radii_test = radii[i] + 3
+#                     radii[i] = min(radii_test,len(grayscale[1,:]))
+#             except IndexError:
+#                 print('Image error at image', image_name)
+#                 break
+
+#     return rgb_of_circles, annotated
 
 #changes from this point from pulling rgb to pulling hsv
 def find_circles(rgb, grayscale, annotated, coords_x, coords_y, image_name):
@@ -124,7 +149,16 @@ def show_annotated_image(rgb_annotated, path, image_name):
     annotated.show(title=image_name) 
     annotated.save(new_path) 
 
+# def write_excel(coords_x, coords_y, rgb_of_circles, path, image_name):
+#     all_data = pd.DataFrame(rgb_of_circles)
+#     all_data.columns = ['R','G','B']
+#     all_data['x positions'] = coords_x
+#     all_data['y positions'] = coords_y
 
+#     name = image_name + ".xlsx"
+#     new_path = os.path.join(path, 'image_RGB',name)
+#     all_data.to_excel(new_path)
+    
 def write_excel(coords_x, coords_y, hsv_of_circles, path, image_name):
     all_data = pd.DataFrame(hsv_of_circles)
     all_data.columns = ['Hue','Saturation','Value']
