@@ -9,6 +9,7 @@ import os
 coords_x = []
 coords_y = []
 indx = 1
+circle_numbers = []
 set_width = 500 # include prompting for this
 
 def image_quantification(path):
@@ -40,6 +41,7 @@ def image_quantification(path):
         for i in range(len(coords_x)):
             row = {
                 'filename': image_name,
+                'circle number': circle_numbers[i],
                 'x_positions': coords_x[i],
                 'y_position': coords_y[i],
                 'R': rgb_circles[i, 0],
@@ -51,6 +53,7 @@ def image_quantification(path):
         indx = 1
         coords_x.clear()
         coords_y.clear()
+        circle_numbers.clear()
 
     #create one df for all detections and write to a single excel
     all_data = pd.DataFrame(all_rows)
@@ -98,6 +101,7 @@ def callback(event):
 
     coords_x.append(event.x)
     coords_y.append(event.y)
+    circle_numbers.append(indx)
     canvas.create_text((event.x, event.y), text=str(indx))
     draw.text((event.x, event.y), text=str(indx), fill=(0,0,0))
     indx += 1
