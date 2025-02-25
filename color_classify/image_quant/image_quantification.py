@@ -27,19 +27,36 @@ def image_quantification(path):
             print("Directory already exists.")
 
     files = Path(path).glob('**/*.tif')
+    all_rows = []
     
     for imgpath in files:
         image_name = os.path.basename(imgpath).split('.')[0]   
         rgb, grayscale, annotated = read_images(imgpath, image_name)
         rgb_circles, rgb_annotated = find_circles(rgb, grayscale, annotated, coords_x, coords_y, image_name)
         show_annotated_image(rgb_annotated, path, image_name)
-        write_excel(coords_x, coords_y, rgb_circles, path, image_name)
+        # write_excel(coords_x, coords_y, rgb_circles, path, image_name) ##
+
+        #for each detected circle, store a row with its RGB data and image filename
+        for i in range(len(coords_x)):
+            row = {
+                'filename': image_name,
+                'x_positions': coords_x[i],
+                'y_position': coords_y[i],
+                'R': rgb_circles[i, 0],
+                'G': rgb_circles[i, 1],
+                'B': rgb_circles[i, 2]
+            }
+            all_rows.append(row)
 
         indx = 1
         coords_x.clear()
         coords_y.clear()
-    
-    print("Analysis complete.")
+
+    #create one df for all detections and write to a single excel
+    all_data = pd.DataFrame(all_rows)
+    excel_file = os.path.join(path, 'image_RGB', 'combined_data.xlsx')
+    all_data.to_excel(excel_file, index=False)
+    print("Analysis complete. Data saved to ", excel_file)
 
 
 def read_images(imgpath, image_name):
